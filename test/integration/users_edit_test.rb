@@ -5,7 +5,15 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
     @other_user = users(:archer)
   end
-
+  test "first login with friendly forwarding" do
+    get edit_user_path(@user)
+    log_in_as(@user)
+    assert_redirected_to edit_user_path(@user)
+    log_in_as(@user)
+    assert_redirected_to @user
+    follow_redirect!
+    assert_template 'users/show'
+  end
   test "successful edit with friendly forwarding" do
     get edit_user_path(@user)
     log_in_as(@user)
