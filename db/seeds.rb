@@ -14,7 +14,7 @@ User.create!(name: "Example User",
   activated: true,
   activated_at: Time.zone.now)
 User.create!(name: "Nick22nd",
-    email: "yxdgg1119@gmail.coom",
+    email: "yxdgg1119@gmail.com",
     password: "foobar",
     password_confirmation: "foobar",
     admin: true,
